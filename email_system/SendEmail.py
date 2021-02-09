@@ -82,16 +82,9 @@ def sendEmailToCMS(name,email,people):
     msg.attach(part1)
     msg.attach(part2)
 
-    # server = smtplib.SMTP_SSL("smtp.gmail.com", 465 )
-    # server.starttls()
-    # server.login('mickeygerman1@gmail.com', 'mickeygerman1')
-    # server.sendmail('mickeygerman1@gmail.com', email, msg.as_string())
-
-
     server = smtplib.SMTP_SSL("smtp.gmail.com", 465 )
     server.login(sender_email, password)
     server.sendmail(sender_email, receiver_email, msg.as_string())
     server.quit()
 
-    # for x, y in people.items():
-    #     print(x, y)
+    

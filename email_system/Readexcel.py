@@ -45,7 +45,7 @@ admin_dictionary=(dict(zip(admin,admin_address)))
 for key, value in admin_dictionary.items():
     SendEmail.sendEmailToCMS(str (key),str (value),client_dictionary)
 
-# #send to client
-# for key, value in client_dictionary.items():
-#     SendEmail.sendEmailToClient(str (key),str (value))
+#send to client
+for key, value in client_dictionary.items():
+    SendEmail.sendEmailToClient(str (key),str (value))
 
