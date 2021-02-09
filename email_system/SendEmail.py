@@ -23,7 +23,7 @@ def sendEmailToClient(name,email):
     message["From"] = sender_email
     message["To"] = receiver_email
     message["Subject"] = subject
-    message["Bcc"] = receiver_email  # Recommended for mass emails
+    # message["Bcc"] = receiver_email  # Recommended for mass emails
 
     # Add body to email
     message.attach(MIMEText(body, "plain"))
