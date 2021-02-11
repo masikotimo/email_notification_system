@@ -24,7 +24,7 @@ admin_address=[]
 #looping through client records
 for i in range(1,sheet_client.nrows):
 
-    if(int(sheet_client.cell_value(i,3))<=7):
+    if(int(sheet_client.cell_value(i,5))<=7):
         client.append( sheet_client.cell_value(i,0))
         email.append((sheet_client.cell_value(i,1)))
 
