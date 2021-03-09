@@ -14,9 +14,9 @@ def sendEmailToClient(name,email):
     subject = "3D Services "
     body = """Hello %s,\n\n You are going to get deactivated soon Kindly renew your subscription package """ % (name)
     
-    sender_email = "mickeygerman1@gmail.com"
+    sender_email = "timothym@3dservices.co.ug"
     receiver_email = email
-    password = "mickeygerman1"
+    password = ".Forward2021"
 
     # Create a multipart message and set headers
     message = MIMEMultipart()
@@ -30,22 +30,22 @@ def sendEmailToClient(name,email):
 
     text = message.as_string()
 
-    server = smtplib.SMTP_SSL("smtp.gmail.com", 465 )
+    server = smtplib.SMTP_SSL("mail.3dservices.co.ug",465)
     server.login(sender_email, password)
     server.sendmail(sender_email, receiver_email, text)
     server.quit()
 
 
 def sendEmailToCMS(name,email,people):
-    sender_email = "mickeygerman1@gmail.com"
+    sender_email = "timothym@3dservices.co.ug"
     receiver_email = email
-    password = "mickeygerman1"
+    password = ".Forward2021"
 
 
 
     msg = MIMEMultipart()
 
-    msg['From'] = 'mickeygerman1@gmail.com'
+    msg['From'] = sender_email
     msg['To'] = email 
     msg['Subject'] = '3D Services'
 
@@ -82,7 +82,7 @@ def sendEmailToCMS(name,email,people):
     msg.attach(part1)
     msg.attach(part2)
 
-    server = smtplib.SMTP_SSL("smtp.gmail.com", 465 )
+    server = smtplib.SMTP_SSL("mail.3dservices.co.ug",465)
     server.login(sender_email, password)
     server.sendmail(sender_email, receiver_email, msg.as_string())
     server.quit()
