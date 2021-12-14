@@ -104,11 +104,11 @@ class Wialon(object):
     def sid(self, value):
         self._sid = value
 
-    def update_extra_params(self, params):
+    def update_extra_params(self, **params):
         """
         Updated the Wialon API default parameters.
         """
-        self.__default_params.update(**params)
+        self.__default_params.update(params)
 
     def avl_evts(self):
         """

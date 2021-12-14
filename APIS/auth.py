@@ -10,7 +10,7 @@ def login(wialon_api, token):
             token=token)
 
         wialon_api.sid = result['eid']
-        # print(result['eid'])
+        print(result['eid'])
 
         print('Login successfully')
         return result['user']['crt']
@@ -36,18 +36,22 @@ token = 'f0611136a2f64d810b638dd8ee6501ab1CAB947ADCE151C574FF1A5AC7DBF90BC06DCD7
 
 
 wialon_api = Wialon()
+
 creator_id = login(wialon_api, token)
 params = {'creatorId': creator_id, 'name': 'ips_unitttss',
           'hwTypeId': 96266, 'dataFlags': 1}
+
+create_user_params = {"id": 352093083080803,
+                      "flags": 4}
 action_name = 'core/create_unit'
+create_user_action_name = 'core/search_item'
 
 
 def create_unit():
     try:
-        wialon_api.update_extra_params(params)
-        print('default params', wialon_api.__default_params)
+        print(wialon_api.avl_evts())
 
-        wialon_api.call(action_name)
+        wialon_api.call(create_user_action_name, **create_user_params)
         print("sucessfully")
 
     except WialonError as e:
@@ -55,3 +59,11 @@ def create_unit():
 
 
 create_unit()
+
+
+# when login suceed then run init() function
+#  load items to current session
+#  Items specification
+#  exit if error code
+#  get loaded 'avl_unit's items
+#  check if units found
