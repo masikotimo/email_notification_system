@@ -58,12 +58,33 @@ def create_unit():
         print(e)
 
 
-create_unit()
-
-
 # when login suceed then run init() function
 #  load items to current session
 #  Items specification
 #  exit if error code
 #  get loaded 'avl_unit's items
 #  check if units found
+view_units_params = {
+    "spec": [{"type": "type", "data": "avl_resource", "flags": 1, "mode": 0}]}
+
+svc = "core/update_data_flags"
+
+
+# host?svc=core/update_data_flags&params={"spec":[{"type":"type","data":"avl_unit","flags":1,"mode":0}]}&sid=09f13de5c5074c0ce972384d48908e21
+
+
+def view_units():
+    try:
+
+        result = wialon_api.call(svc, **view_units_params)
+        resId = (result[0]["i"])
+        view_units_paramsx = {
+            "spec": [{"type": "id", "data": resId, "flags": 1, "mode": 0}]}
+        result = wialon_api.call(svc, **view_units_paramsx)
+        print(result)
+
+    except WialonError as e:
+        print(e)
+
+
+view_units()
